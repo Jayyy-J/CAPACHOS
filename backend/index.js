@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/auth', require('./rutas/auth'));
 app.use('/api/eventos', require('./rutas/eventos'));
+app.use('/api/reservas', require('./rutas/reservas'));
 
 app.get('/', (req, res) => {
   res.send('API de LOS CAPACHOS funcionando');

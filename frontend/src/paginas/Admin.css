@@ -1,0 +1,23 @@
+.admin-panel {
+  padding: 2rem;
+}
+
+.admin-panel nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-panel nav button {
+  background: none;
+  border: none;
+  color: var(--color-texto);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid transparent;
+}
+
+.admin-panel nav button.activo {
+  border-bottom-color: var(--color-primario);
+}

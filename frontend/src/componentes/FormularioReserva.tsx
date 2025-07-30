@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FormularioReserva.css';
 import Boton from './Boton';
+import { crearReserva } from '../servicios/reservaService';
 
 const FormularioReserva: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const FormularioReserva: React.FC = () => {
     telefono: '',
     correo: '',
   });
+  const [mensaje, setMensaje] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -19,10 +21,27 @@ const FormularioReserva: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Lógica para enviar la reserva al backend
-    console.log(formData);
+    try {
+      const token = localStorage.getItem('token'); // Suponiendo que el token se guarda en localStorage
+      if (!token) {
+        setMensaje('Debes iniciar sesión para reservar');
+        return;
+      }
+      await crearReserva(formData, token);
+      setMensaje('Reserva creada con éxito');
+      setFormData({
+        nombreCompleto: '',
+        numeroPersonas: 1,
+        fecha: '',
+        hora: '',
+        telefono: '',
+        correo: '',
+      });
+    } catch (error) {
+      setMensaje('Error al crear la reserva');
+    }
   };
 
   return (
@@ -75,6 +94,7 @@ const FormularioReserva: React.FC = () => {
         required
       />
       <Boton tipo="primario">Reservar</Boton>
+      {mensaje && <p>{mensaje}</p>}
     </form>
   );
 };
