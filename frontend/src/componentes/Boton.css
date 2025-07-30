@@ -1,0 +1,29 @@
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primario {
+  background: var(--color-primario);
+  color: var(--color-texto);
+}
+
+.btn-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secundario {
+  background: transparent;
+  color: var(--color-primario);
+  border: 2px solid var(--color-primario);
+}
+
+.btn-secundario:hover {
+  background: var(--color-primario);
+  color: var(--color-texto);
+}

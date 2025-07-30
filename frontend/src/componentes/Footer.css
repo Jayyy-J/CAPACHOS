@@ -1,0 +1,40 @@
+.footer {
+  padding: 2rem;
+  background-color: var(--color-separador);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-seccion {
+  margin: 1rem;
+}
+
+.footer-seccion h3 {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+}
+
+.footer-seccion a {
+  display: block;
+  color: var(--color-texto);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-seccion a:hover {
+  color: var(--color-primario);
+}
+
+.footer-social a {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-newsletter input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-right: 0.5rem;
+}
